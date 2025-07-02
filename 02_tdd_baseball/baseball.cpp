@@ -26,6 +26,12 @@ public:
             return { false, 2, 0 };
         }
 
+        if (guessNumber[0] == question[0]
+            && guessNumber[1] != question[1]
+            && guessNumber[2] == question[2]) {
+            return { false, 2, 0 };
+        }
+
         return { false, 0, 0 };
     }
 
