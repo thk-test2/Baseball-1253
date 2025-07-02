@@ -5,24 +5,22 @@ class BaseballFixture : public testing::Test {
 public:
     Baseball game;
     void assertIllegalArgument(string guessNumber) {
-        // game.guess() 수행 후, Exception이 발생해야 PASS 이다.
+        try {
+            game.guess(guessNumber);
+            FAIL();
+        }
+        catch (exception e) {
+            // PASS
+        }
     }
 };
 
-TEST(BaseballGame, ThrowExceptionWhenInputLengthIsUnmatched) {
-    Baseball game;
-    EXPECT_THROW(game.guess(string("12")), length_error);
+TEST_F(BaseballFixture, ThrowExceptionWhenInputLengthIsUnmatched) {
+    assertIllegalArgument("12");
 }
 
-TEST(BaseballGame, ThrowExceptionWhenInvalidChar) {
-    Baseball game;
-    try {
-        game.guess(string("12s"));
-        FAIL();
-    }
-    catch(exception e) {
-        // PASS
-    }
+TEST_F(BaseballFixture, ThrowExceptionWhenInvalidChar) {
+    assertIllegalArgument("12s");
 }
 
 int main() {
