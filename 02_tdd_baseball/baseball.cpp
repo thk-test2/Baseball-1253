@@ -24,19 +24,24 @@ public:
             return { false, 2, 0 };
         }
 
-        if ((guessNumber[0] == solution[0]
-                && guessNumber[1] == solution[2]
-                && guessNumber[2] == solution[1]) ||
+        if (is1Strike2Balls(guessNumber)) {
+            return { false, 1, 2 };
+        }
+
+        return { false, 0, 0 };
+    }
+
+    bool is1Strike2Balls(const std::string& guessNumber)
+    {
+        return (guessNumber[0] == solution[0]
+            && guessNumber[1] == solution[2]
+            && guessNumber[2] == solution[1]) ||
             (guessNumber[0] == solution[2]
                 && guessNumber[1] == solution[1]
                 && guessNumber[2] == solution[0]) ||
             (guessNumber[0] == solution[1]
                 && guessNumber[1] == solution[0]
-                && guessNumber[2] == solution[2])) {
-            return { false, 1, 2 };
-        }
-
-        return { false, 0, 0 };
+                && guessNumber[2] == solution[2]);
     }
 
     bool is2Strikes0Ball(const std::string& guessNumber)
