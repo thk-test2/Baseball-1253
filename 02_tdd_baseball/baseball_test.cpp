@@ -43,8 +43,16 @@ TEST_F(BaseballFixture, ReturnResultFor2Strikes0Ball) {
     check2Strikes0Ball("023");
 }
 
-TEST_F(BaseballFixture, ReturnResultFor1Strike2Balls) {
+TEST_F(BaseballFixture, ReturnResultFor1Strike2BallsFirst) {
     GuessResult result = game.guess("132");
+
+    EXPECT_FALSE(result.solved);
+    EXPECT_EQ(1, result.strikes);
+    EXPECT_EQ(2, result.balls);
+}
+
+TEST_F(BaseballFixture, ReturnResultFor1Strike2BallsSecond) {
+    GuessResult result = game.guess("321");
 
     EXPECT_FALSE(result.solved);
     EXPECT_EQ(1, result.strikes);

@@ -24,9 +24,12 @@ public:
             return { false, 2, 0 };
         }
 
-        if (guessNumber[0] == solution[0]
-            && guessNumber[1] == solution[2]
-            && guessNumber[2] == solution[1]) {
+        if ((guessNumber[0] == solution[0]
+                && guessNumber[1] == solution[2]
+                && guessNumber[2] == solution[1]) ||
+            (guessNumber[0] == solution[2]
+                && guessNumber[1] == solution[1]
+                && guessNumber[2] == solution[0])) {
             return { false, 1, 2 };
         }
 
@@ -36,8 +39,8 @@ public:
     bool is2Strikes0Ball(const std::string& guessNumber)
     {
         return (guessNumber[0] == solution[0]
-            && guessNumber[1] == solution[1]
-            && guessNumber[2] != solution[2]) ||
+                && guessNumber[1] == solution[1]
+                && guessNumber[2] != solution[2]) ||
             (guessNumber[0] == solution[0]
                 && guessNumber[1] != solution[1]
                 && guessNumber[2] == solution[2]) ||
