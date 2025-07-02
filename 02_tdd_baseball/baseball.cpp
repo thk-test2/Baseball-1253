@@ -29,7 +29,10 @@ public:
                 && guessNumber[2] == solution[1]) ||
             (guessNumber[0] == solution[2]
                 && guessNumber[1] == solution[1]
-                && guessNumber[2] == solution[0])) {
+                && guessNumber[2] == solution[0]) ||
+            (guessNumber[0] == solution[1]
+                && guessNumber[1] == solution[0]
+                && guessNumber[2] == solution[2])) {
             return { false, 1, 2 };
         }
 
