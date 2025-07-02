@@ -10,13 +10,13 @@ struct GuessResult {
 
 class Baseball {
 public:
-    explicit Baseball(const string& question)
-        : question(question) {
+    explicit Baseball(const string& solution)
+        : solution(solution) {
     }
 
     GuessResult guess(const string& guessNumber) {
         assertIllegalArgument(guessNumber);
-        if (guessNumber == question) {
+        if (guessNumber == solution) {
             return { true, 3, 0 };
         }
         
@@ -29,15 +29,15 @@ public:
 
     bool is2Strikes0Ball(const std::string& guessNumber)
     {
-        return (guessNumber[0] == question[0]
-            && guessNumber[1] == question[1]
-            && guessNumber[2] != question[2]) ||
-            (guessNumber[0] == question[0]
-                && guessNumber[1] != question[1]
-                && guessNumber[2] == question[2]) ||
-            (guessNumber[0] != question[0]
-                && guessNumber[1] == question[1]
-                && guessNumber[2] == question[2]);
+        return (guessNumber[0] == solution[0]
+            && guessNumber[1] == solution[1]
+            && guessNumber[2] != solution[2]) ||
+            (guessNumber[0] == solution[0]
+                && guessNumber[1] != solution[1]
+                && guessNumber[2] == solution[2]) ||
+            (guessNumber[0] != solution[0]
+                && guessNumber[1] == solution[1]
+                && guessNumber[2] == solution[2]);
     }
 
     void assertIllegalArgument(const std::string& guessNumber)
@@ -64,5 +64,5 @@ public:
     }
 
 private:
-    string question;
+    string solution;
 };
