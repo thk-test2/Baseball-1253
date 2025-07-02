@@ -20,21 +20,15 @@ public:
             return { true, 3, 0 };
         }
         
-        if (guessNumber[0] == question[0]
-            && guessNumber[1] == question[1]
-            && guessNumber[2] != question[2]) {
-            return { false, 2, 0 };
-        }
-
-        if (guessNumber[0] == question[0]
-            && guessNumber[1] != question[1]
-            && guessNumber[2] == question[2]) {
-            return { false, 2, 0 };
-        }
-
-        if (guessNumber[0] != question[0]
-            && guessNumber[1] == question[1]
-            && guessNumber[2] == question[2]) {
+        if ((guessNumber[0] == question[0]
+                && guessNumber[1] == question[1]
+                && guessNumber[2] != question[2]) ||
+            (guessNumber[0] == question[0]
+                && guessNumber[1] != question[1]
+                && guessNumber[2] == question[2]) ||
+            (guessNumber[0] != question[0]
+                && guessNumber[1] == question[1]
+                && guessNumber[2] == question[2])){
             return { false, 2, 0 };
         }
 
